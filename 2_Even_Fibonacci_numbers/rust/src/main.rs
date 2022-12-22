@@ -1,5 +1,7 @@
+use std::ops::AddAssign;
+
 fn main() {
-    println!("{:?}", sum_u32(filter(&even, fib_lessthan(4_000_000))));
+    println!("{:?}", sum(filter(&even, fib_lessthan(4_000_000))));
 }
 
 fn fib_lessthan(n: u32) -> Vec<u32> {
@@ -26,8 +28,8 @@ fn filter<T: Copy>(func: &dyn Fn(T) -> bool, arr: Vec<T>) -> Vec<T> {
     return new;
 }
 
-fn sum_u32(arr: Vec<u32>) -> u32 {
-    let mut sum: u32 = 0;
+fn sum<T: AddAssign + Default>(arr: Vec<T>) -> T {
+    let mut sum: T = T::default();
     for i in arr { sum += i }
     return sum;
 }
