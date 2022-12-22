@@ -1,5 +1,5 @@
 fn main() {
-    println!("{:?}", sum_u32(filter_u32(&even, fib_lessthan(4_000_000))));
+    println!("{:?}", sum_u32(filter(&even, fib_lessthan(4_000_000))));
 }
 
 fn fib_lessthan(n: u32) -> Vec<u32> {
@@ -16,8 +16,8 @@ fn fib_lessthan(n: u32) -> Vec<u32> {
 
 fn even(item: u32) -> bool { item % 2 == 0 }
 
-fn filter_u32(func: &dyn Fn(u32) -> bool, arr: Vec<u32>) -> Vec<u32> {
-    let mut new: Vec<u32> = Vec::new();
+fn filter<T: Copy>(func: &dyn Fn(T) -> bool, arr: Vec<T>) -> Vec<T> {
+    let mut new: Vec<T> = Vec::new();
     for item in arr {
         if func(item) {
             new.push(item);
