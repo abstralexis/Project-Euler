@@ -25,7 +25,7 @@ def highest_prime_factor(n: int):
     return max(filter(is_prime, filter(is_factor_of(n), range(2, n//2))))
 
 def main():
-    print(f"{highest_prime_factor(13195)}")
+    print(f"{highest_prime_factor(600851475143)}")
 
 if __name__ == "__main__":
     main()
