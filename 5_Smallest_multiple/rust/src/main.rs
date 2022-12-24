@@ -1,3 +1,8 @@
+/*
+ *  I have heard that there is some numeric algorithm for finding 
+ *  the LCD and such, but I'm simply too silly for it.
+ */
+
 fn main() {
     println!("{:?}", lowest_multiple(20));
 }
